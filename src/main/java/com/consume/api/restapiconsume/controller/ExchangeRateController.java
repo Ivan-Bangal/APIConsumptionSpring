@@ -1,8 +1,9 @@
 package com.consume.api.restapiconsume.controller;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.consume.api.restapiconsume.interfaces.ExchangeRateService;
 import com.consume.api.restapiconsume.model.exchangerate.RateExchange;
-import com.consume.api.restapiconsume.services.ExchangeRateService;
+
 import reactor.core.publisher.Mono;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,9 +20,8 @@ public class ExchangeRateController {
         this.exchangeRateService = exchangeRateService;
     }
    
-
-    @GetMapping(value="/{coin}")
-    public Mono<RateExchange> getMethodName(@PathVariable String coin) {
+    @GetMapping("/{coin}")
+    public Mono<RateExchange> getRateExchange(@PathVariable String coin) {
         return exchangeRateService.getRateExchangeForCoin(coin);
     }
     

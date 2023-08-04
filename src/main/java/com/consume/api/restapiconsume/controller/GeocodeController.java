@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.consume.api.restapiconsume.interfaces.GeocodeService;
 import com.consume.api.restapiconsume.model.weather.Geocode;
-import com.consume.api.restapiconsume.services.GeocodeService;
 
 import reactor.core.publisher.Mono;
 

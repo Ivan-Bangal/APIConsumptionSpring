@@ -3,11 +3,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.consume.api.restapiconsume.model.worldbank.WorldbankResponse;
-import com.consume.api.restapiconsume.services.WorldbankService;
-
-import reactor.core.publisher.Flux;
+import com.consume.api.restapiconsume.interfaces.WorldbankService;
 import reactor.core.publisher.Mono;
 
 @RestController
@@ -20,14 +16,14 @@ public class WorldbankController {
         this.worldbankService = worldbankService;
     }
 
-    @GetMapping("/gdp/{cityCode}")
-    public Mono<Object> getGDPData(@PathVariable String cityCode) {
-        return worldbankService.getGDPData(cityCode);
+    @GetMapping("/gdp/{countryCode}")
+    public Mono<Object> getGDPData(@PathVariable String countryCode) {
+        return worldbankService.getGDPData(countryCode);
     }
 
-    @GetMapping("/population/{cityCode}")
-    public Mono<Object> getPopulationData(@PathVariable String cityCode) {
-        return worldbankService.getPopulationData(cityCode);
+    @GetMapping("/population/{countryCode}")
+    public Mono<Object> getPopulationData(@PathVariable String countryCode) {
+        return worldbankService.getPopulationData(countryCode);
     }
 }
 

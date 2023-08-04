@@ -2,8 +2,9 @@ package com.consume.api.restapiconsume.controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.consume.api.restapiconsume.interfaces.WeatherService;
 import com.consume.api.restapiconsume.model.weather.Weather;
-import com.consume.api.restapiconsume.services.WeatherService;
+import com.consume.api.restapiconsume.services.WeatherServiceImpl;
 
 import reactor.core.publisher.Mono;
 
@@ -23,7 +24,7 @@ public class WeatherController {
 
     @GetMapping("/{city}")
     public Mono<Weather> getMethodName(@PathVariable String city) {
-        return weatherService.GetWeatherData(city);
+        return weatherService.getWeatherData(city);
     }
     
 
